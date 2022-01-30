@@ -1,0 +1,31 @@
+select 
+	cast(Null as varchar(255)) EDWPatientID
+	,MRN
+	,cast('Athena Procedures' as varchar(255)) SourceDSC
+	, SourceID
+	,cast('EKG' as varchar(255)) ObservationCategoryNM
+	,EntryDSC ObservationNM
+	,cast(ProcedureDTS as datetime2) ObservationDTS
+	,cast(Null as datetime2) OnsetDTS
+	,cast(Null as datetime2) ResolvedDTS
+	,cast(Null as varchar(255)) ObservationValueTXT
+	,cast(Null as float) ObservationValueNBR
+	,cast('Resulted' as varchar(255)) ObservationStatusDSC
+	,case when ProcedureCodeTypeNM='LOINC' then ProcedureCD else cast(NULL as varchar(255)) end LOINC
+	,case when ProcedureCodeTypeNM='CPT' or ProcedureCodeTypeNM='CPT-4' then ProcedureCD else cast(Null as varchar(255)) end CPTProcedureCD
+	,case when ProcedureCodeTypeNM='HCPCS' then ProcedureCD else cast(Null as varchar(255)) end HCPCSCD
+	,cast(Null as varchar(255)) HEDISCD
+	,case when ProcedureCodeTypeNM not in ('LOINC', 'CPT', 'CPT-4', 'HCPCS') then ProcedureCD else cast(Null as varchar(255)) end OtherProcedureCD
+	,cast(Null as varchar(255)) SNOMED
+	,cast(Null as varchar(255)) ICDDiagnosisCD
+	,cast(NULL as varchar(255)) RxNormCD
+	,cast(NULL as nvarchar(255)) ProviderNPI
+	,cast(NULL as varchar(512)) ProviderNM
+	,PracticeNM BusinessNM
+	,TIN
+	,cast(0 as int) HedisFLG
+from 
+	Shared.Ambulatory.[Procedures] p
+where 
+	SourceDSC='Athena'
+	and ProcedureCD in ('93000', '93005')

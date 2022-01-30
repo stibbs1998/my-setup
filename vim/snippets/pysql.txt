@@ -1,0 +1,44 @@
+import os
+import yaml
+from sqlalchemy import create_engine
+import pymssql
+import pandas as pd
+
+# %% =======================================================================
+"""
+Functions
+"""
+
+def make_engine(connection='dev'):
+    """
+    Create a connection to either 'acedwdev' or 'acedwprod'
+
+    Keyword Arguments:
+        connection {str} -- "DEV" or "PROD" (default: {'DEV'})
+
+    Returns:
+        engine [SQL-Alchemy Engine] -- The sql alchemy connection
+    """
+    home_dir = os.path.expanduser("~")
+
+    with open(os.path.join(home_dir, 'secrets.yaml'), 'r') as stream:
+        data_loaded = yaml.load(stream)
+
+        print("Fetching User/PSWD....")
+        user = data_loaded['SQL_DEV']['user']
+        password = data_loaded['SQL_DEV']['password']
+
+    # Establish connection string and create connection engine
+    conn_str = 'mssql+pymssql://ACEDW.HOSTED\\{0}:{1}@acny-edw{2}.acny.hosted:1433'.format(
+        user, password, connection.lower())
+    engine = create_engine(conn_str)
+    print("Engine made.")
+    return engine
+
+# %% =======================================================================
+conn = make_engine(connection="dev")
+query = open("").read()
+res = conn.execute(query)
+# %% =======================================================================
+df = pd.DataFrame(res, columns = res.keys())
+

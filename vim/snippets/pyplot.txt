@@ -1,0 +1,3 @@
+f, axes = plt.subplots(figsize=(10,6))
+
+#plt.savefig("PATH")

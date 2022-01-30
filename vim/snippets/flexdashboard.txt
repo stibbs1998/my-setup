@@ -1,0 +1,64 @@
+---
+title: ""
+output:
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: scroll
+    css: "../includes/styles.css"
+    logo: "../includes/acuitas_logo_transparent_small.png"
+
+editor_options:
+  chunk_output_type: console
+---
+
+<!-- setup.R -->
+```{r, setup, include=FALSE, warning=FALSE, message=FALSE, results='asis'}
+# setwd("")
+# source("")
+```
+
+<!-- New Tab -->
+
+Tab0 {data-orientation=columns}
+================================
+
+Column {.tabset}
+---------------------------------
+
+### Chart
+
+```{r, Chart0, echo=FALSE, results='asis'}
+```
+
+Column {.tabset}
+---------------------------------
+
+### Chart
+
+```{r, Chart1, echo=FALSE, results='asis'}
+```
+
+<!-- New Tab -->
+
+Tab1 {data-orientation=rows}
+================================
+
+Row {.tabset}
+---------------------------------
+
+### Chart
+
+```{r, Chart2, echo=FALSE, results='asis'}
+```
+
+Tab2 {data-orientation=columns}
+================================
+
+Create Tabset {.tabset}
+---------------------------------
+
+### Chart
+
+```{r, Chart3, echo=FALSE, results='asis'}
+```
+

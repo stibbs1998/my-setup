@@ -1,0 +1,17 @@
+## INIT ========================================================================
+library(DBI)
+library(DT)
+library(feather)
+library(odbc)
+
+## DATA ========================================================================
+con <- dbConnect(odbc::odbc(),
+                 dsn="acny-edwprod",
+                 uid = Sys.getenv("edw_user"),
+                 pwd = Sys.getenv("edw_pass"))
+
+query <- readr::read_file("query.sql")
+data  <- dbGetQuery(con, query)
+dbDisconnect(con)
+
+write_feather(data, "data.feather")

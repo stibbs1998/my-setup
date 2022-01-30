@@ -1,0 +1,1 @@
+valueBox(, icon = "fa-eye", color = "#5e3294")

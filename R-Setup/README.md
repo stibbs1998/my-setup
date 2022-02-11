@@ -1,14 +1,17 @@
-# All Things Python
+# R
 
-## Python 
-Installation/Requirements:
-I used Python version 3.7.7 for all of the analysis, which you can download here.  
-	https://www.python.org/downloads/release/python-377/
+Here is the last version of R I was running:
 
-Pip Install Packages
-https://pip.pypa.io/en/stable/installation/
+```
+R version 4.1.1 (2021-08-10) -- "Kick Things"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin17.0 (64-bit)
 
-By running `pip install -r requirements.txt` from the command line you can install all of the packages from that file.  Comb through these to see which ones you really do/don't need.
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under the terms of the
+GNU General Public License versions 2 or 3.
+For more information about these matters see
+https://www.gnu.org/licenses/.
+```
 
-## Conda
-Current Version: conda 4.10.3
+The packages I use the most are found in [this file](https://github.com/stibbs1998/my-setup/blob/main/vim/snippets/r_libs.txt). 

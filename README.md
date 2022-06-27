@@ -1,4 +1,3 @@
-# My Setup
+# Setup Repo
 
-a;slkdjfa;lkdsjfalk;sdj
-This repo contains my vim-configuration, Python/R setups, and potentially more so I can move from machine to machine.
+My vim setup, as well as Python and other packages necessary.

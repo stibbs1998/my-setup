@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
 " Keep Plugin commands between vundle#begin/end.
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+"Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug 'vim-scripts/AutoComplPop' , {'for': ['python', 'sql', 'R']}
 Plug 'sudar/comments.vim'
@@ -15,7 +16,7 @@ Plug 'iamcco/markdown-preview.nvim' , {'for': 'markdown'}
 Plug 'morhetz/gruvbox'
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['python', 'sql', 'R']}
-" Telescope & Dependency
+"" Telescope & Dependency
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
@@ -100,15 +101,18 @@ nnoremap <leader>sql <cmd>CocCommand sqlfluff.fix<cr>
 " Telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
+noremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Tab b/w Vim Tabs
 nnoremap <tab><tab> <cmd>:tabn<cr>
 nnoremap <S-tab><S-tab> <cmd>:tabn<cr>
 
+" GitGutter speed
+set updatetime=100
+
 " Turn off Autocomplete in Telescope! (super annoying)
-autocmd FileType TelescopePrompt call deoplete#custom#buffer_option('auto_complete', v:false)
+"autocmd FileType TelescopePrompt call deoplete#custom#buffer_option('auto_complete', v:false)
 
 " MISC SETTINGS
 set ai "Auto indent
